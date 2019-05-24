@@ -35,7 +35,7 @@ This application has the following prerequisites:
 - A CUDA device, at least of architecture Fermi
 - A C++ compiler (tested with GCC)
 - make (tested with GNU make)
-- MCL version 0.1.1
+- MCL version 0.1.1 with the binary ~mcl~ in the path
 
 Alternatively, if there is no CUDA device available, it is possible to
 run it on the CPU with a small workaround, see below.  
