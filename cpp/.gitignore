@@ -1,1 +1,7 @@
 /matrixmultiplication
+/.depends
+/kernels.o
+/main.o
+/matmul
+/out_cpu
+/out_mcl
