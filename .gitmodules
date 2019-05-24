@@ -1,3 +1,6 @@
 [submodule "cpp/lib/lib-io-data"]
 	path = cpp/lib/lib-io-data
 	url = https://github.com/JungleComputing/lib-io-data.git
+[submodule "cpp/lib/lib-timer"]
+	path = cpp/lib/lib-timer
+	url = https://github.com/JungleComputing/lib-timer.git
