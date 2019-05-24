@@ -31,11 +31,11 @@ and each have their own ~Makefile~.
 
 This application has the following prerequisites:
 
-- An NVIDIA CUDA OpenCL runtime
+- An NVIDIA CUDA OpenCL runtime (tested with CUDA 9, OpenCL 1.2)
 - A CUDA device, at least of architecture Fermi
 - A C++ compiler (tested with GCC)
 - make (tested with GNU make)
-- MCL version ??
+- MCL version 0.1.1
 
 Alternatively, if there is no CUDA device available, it is possible to
 run it on the CPU with a small workaround, see below.  
