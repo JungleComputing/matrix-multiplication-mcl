@@ -1,6 +1,6 @@
 PKG		= matrixmultiplication
 SRC		= $(PKG)/matrixmultiplication.mcl
-TGT		= fermi
+TGT		= xeon_e5620
 ENTRY_FUNCS	= matmul
 
 OUTPUT_DIR	= ../cpp

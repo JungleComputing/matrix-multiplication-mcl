@@ -31,19 +31,20 @@ and each have their own ~Makefile~.
 
 This application has the following prerequisites:
 
-- An NVIDIA CUDA OpenCL runtime (tested with CUDA 9, OpenCL 1.2)
-- A CUDA device, at least of architecture Fermi
+- An OpenCL device, see the specifics below
 - A C++ compiler (tested with GCC)
 - make (tested with GNU make)
-- MCL version 0.1.1 with the binary ~mcl~ in the path
+- MCL version 0.1.4 with the binary ~mcl~ in the path
 
-Alternatively, if there is no CUDA device available, it is possible to
-run it on the CPU with a small workaround, see below.  
+We currently support the following devices:
 
-The requirements of the NVIDIA OpenCL runtime and device are replaced
-with:
-
-- An OpenCL runtime for a CPU (tested with Intel, version 1.2)
+- A CPU with an OpenCL runtime installed (default), tested with OpenCL
+  1.2 LINUX with an Intel Core i7 device.
+- An Intel GPU by means of the Beignet library, tested with Beignet 1.3.2.
+  To use this, choose as target ~intel_gpu~ for compilation below.
+- A CUDA device, at least of architecture Fermi with an NVIDIA CUDA
+  OpenCL runtime (tested with CUDA 9, OpenCL 1.2).  To use this,
+  choose as target ~fermi~ for compilation below.
 
 * Obtaining the code
 
@@ -70,6 +71,15 @@ sources, perform:
 make all
 #+end_src
 
+Currently, the target hardware description is ~xeon_e5620~ that
+describes the Xeon e5620 CPU.  It is possible to run this on any CPU.
+To choose an alternate target, choose one from ~intel_gpu~ or ~fermi~,
+and build with:
+
+#+begin_src sh
+make TGT=<your choice> all
+#+end_src
+
 * Running the code
 
 To run the application, move to directory ~cpp~:
@@ -84,8 +94,3 @@ And call the ~matmul~ program:
 ./matmul
 #+end_src
 
-* Workaround for running on a CPU
-
-In the file ~cpp/matrixmultiplication/matrixmultiplication.cpp~ the
-constant ~CL_DEVICE_TYPE_GPU~ picks a GPU.  Changing this to
-~CL_DEVICE_TYPE_CPU~ forces the OpenCL run-time to choose the CPU.
